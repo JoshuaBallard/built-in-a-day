@@ -557,6 +557,164 @@ blockquote {
     line-height: 1.05;
 }
 
+
+/* Why Obvious and closing */
+
+.obvious-story-section,
+.why-obvious-section,
+.closing-section {
+    padding: 150px 0;
+}
+
+.obvious-story-section {
+    background: var(--surface);
+}
+
+.obvious-story-section h2,
+.why-obvious-section h2,
+.closing-section h2 {
+    margin: 0 0 60px;
+    font-size: clamp(3.4rem, 8vw, 7rem);
+    letter-spacing: -0.065em;
+    line-height: 0.92;
+}
+
+.obvious-story-copy,
+.why-obvious-copy,
+.closing-copy {
+    font-size: clamp(1.2rem, 2vw, 1.55rem);
+    line-height: 1.75;
+}
+
+.obvious-story-copy p,
+.why-obvious-copy p,
+.closing-copy p {
+    margin: 0 0 1.45em;
+}
+
+.signal-list,
+.systems-list {
+    margin: 35px 0 45px;
+    padding: 0;
+    list-style: none;
+}
+
+.signal-list li {
+    margin: 0.2em 0;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    line-height: 1.05;
+}
+
+.systems-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.systems-list li {
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--background);
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 650;
+}
+
+.obvious-large-statement {
+    margin: 90px 0 !important;
+    font-size: clamp(2rem, 5vw, 4.2rem);
+    font-weight: 650;
+    letter-spacing: -0.055em;
+    line-height: 1.08;
+}
+
+.obvious-large-statement span {
+    display: block;
+    margin-top: 0.35em;
+    color: var(--muted);
+    font-weight: 450;
+}
+
+.why-obvious-section {
+    background: var(--background);
+}
+
+.why-obvious-quote {
+    margin-top: 90px;
+}
+
+.why-obvious-quote span {
+    display: block;
+    margin-top: 0.35em;
+    color: var(--muted);
+    font-weight: 450;
+}
+
+.closing-section {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    background: var(--text);
+    color: var(--background);
+}
+
+.closing-section .chapter-label {
+    color: #aaa9a3;
+}
+
+.closing-emphasis {
+    margin-top: 2.5em !important;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.15;
+}
+
+.signature {
+    margin-top: 2.2em !important;
+    color: #aaa9a3;
+}
+
+.closing-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 55px;
+}
+
+.closing-links a {
+    padding: 11px 16px;
+    border: 1px solid #3a3a38;
+    border-radius: 999px;
+    color: var(--background);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+        background 160ms ease,
+        border-color 160ms ease;
+}
+
+.closing-links a:hover {
+    border-color: #5a5a56;
+    background: #20201f;
+}
+
+.final-mark {
+    margin-top: 110px;
+    color: #aaa9a3;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.final-mark p {
+    margin: 0.35em 0;
+}
+
 /* Footer */
 
 footer {
@@ -609,7 +767,10 @@ footer {
     .projects-section,
     .platform-section,
     .lessons-section,
-    .beliefs-section {
+    .beliefs-section,
+    .obvious-story-section,
+    .why-obvious-section,
+    .closing-section {
         padding: 110px 0;
     }
 
@@ -662,6 +823,19 @@ footer {
 
     blockquote {
         margin-top: 75px;
+    }
+
+    .systems-list {
+        gap: 8px;
+    }
+
+    .closing-links {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .final-mark {
+        margin-top: 80px;
     }
 
     .footer-inner {
