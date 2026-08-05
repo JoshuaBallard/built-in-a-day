@@ -420,6 +420,143 @@ blockquote {
     line-height: 1.1;
 }
 
+/* AI failures and lessons */
+
+.lessons-section,
+.beliefs-section {
+    padding: 140px 0;
+}
+
+.lessons-section-dark {
+    background: var(--text);
+    color: var(--background);
+}
+
+.lessons-section-dark .chapter-label,
+.lessons-section-dark .section-heading > p {
+    color: #aaa9a3;
+}
+
+.failure-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.failure-card {
+    display: flex;
+    min-height: 430px;
+    flex-direction: column;
+    padding: 36px;
+    border: 1px solid #343432;
+    border-radius: 24px;
+    background: #20201f;
+}
+
+.failure-number {
+    margin: 0 0 45px;
+    color: #888884;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.failure-card h3 {
+    margin: 0 0 24px;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    letter-spacing: -0.05em;
+    line-height: 1;
+}
+
+.failure-card > p:not(.failure-number, .failure-response) {
+    font-size: 1.08rem;
+    line-height: 1.65;
+}
+
+.failure-response {
+    color: #b8b8b2;
+    line-height: 1.65;
+}
+
+.failure-lesson {
+    margin-top: auto;
+    padding-top: 28px;
+    border-top: 1px solid #3a3a38;
+}
+
+.failure-lesson span {
+    display: block;
+    margin-bottom: 8px;
+    color: #888884;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.failure-lesson strong {
+    font-size: 1.15rem;
+}
+
+.dark-quote {
+    color: var(--background);
+}
+
+.beliefs-section {
+    background: var(--background);
+}
+
+.belief-list {
+    border-top: 1px solid var(--border);
+}
+
+.belief-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 50px minmax(0, 1fr);
+    gap: 35px;
+    align-items: center;
+    padding: 42px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.belief-before span,
+.belief-after span {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.belief-before p,
+.belief-after p {
+    margin: 0;
+    font-size: clamp(1.25rem, 2.5vw, 1.8rem);
+    letter-spacing: -0.025em;
+    line-height: 1.25;
+}
+
+.belief-after p {
+    font-weight: 700;
+}
+
+.belief-arrow {
+    color: var(--accent);
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.belief-summary {
+    max-width: 850px;
+    margin: 100px auto 0;
+    font-size: clamp(2.2rem, 5vw, 4.5rem);
+    font-weight: 650;
+    letter-spacing: -0.055em;
+    line-height: 1.05;
+}
+
 /* Footer */
 
 footer {
@@ -470,7 +607,9 @@ footer {
     }
 
     .projects-section,
-    .platform-section {
+    .platform-section,
+    .lessons-section,
+    .beliefs-section {
         padding: 110px 0;
     }
 
@@ -498,6 +637,27 @@ footer {
     .build-timeline li {
         grid-template-columns: 1fr;
         gap: 8px;
+    }
+
+    .failure-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .failure-card {
+        min-height: auto;
+        padding: 28px;
+    }
+
+    .belief-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 34px 0;
+    }
+
+    .belief-arrow {
+        text-align: left;
+        transform: rotate(90deg);
+        transform-origin: center;
     }
 
     blockquote {

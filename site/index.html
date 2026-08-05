@@ -405,9 +405,215 @@
             </div>
         </section>
 
+
+        <section id="failures" class="lessons-section lessons-section-dark">
+            <div class="section-inner">
+                <p class="chapter-label">BUILD 05 · REALITY CHECK</p>
+
+                <div class="section-heading">
+                    <h2>Things did not go according to plan.</h2>
+
+                    <p>
+                        Which was useful, because the failures taught me more about
+                        working with AI than the clean wins did.
+                    </p>
+                </div>
+
+                <div class="failure-grid">
+                    <article class="failure-card">
+                        <p class="failure-number">01</p>
+
+                        <h3>The token leak.</h3>
+
+                        <p>
+                            While verifying documentation, the AI printed a live Atlas
+                            token into the session.
+                        </p>
+
+                        <p class="failure-response">
+                            We rotated the credential, documented the failure mode,
+                            removed the unnecessary shell export, and built a tested
+                            rotation script so the fix became repeatable.
+                        </p>
+
+                        <div class="failure-lesson">
+                            <span>Lesson</span>
+                            <strong>Security mistakes need systems, not apologies.</strong>
+                        </div>
+                    </article>
+
+                    <article class="failure-card">
+                        <p class="failure-number">02</p>
+
+                        <h3>Localhost lied.</h3>
+
+                        <p>
+                            Several documented health checks failed even though every
+                            service was healthy.
+                        </p>
+
+                        <p class="failure-response">
+                            Inside the containers, localhost resolved to IPv6 while the
+                            services were listening on IPv4. The commands looked right.
+                            Running them proved otherwise.
+                        </p>
+
+                        <div class="failure-lesson">
+                            <span>Lesson</span>
+                            <strong>Exact verification beats plausible commands.</strong>
+                        </div>
+                    </article>
+
+                    <article class="failure-card">
+                        <p class="failure-number">03</p>
+
+                        <h3>The test passed. The feature did not.</h3>
+
+                        <p>
+                            An authentication check compared a container’s token against
+                            the same container’s running configuration.
+                        </p>
+
+                        <p class="failure-response">
+                            It could report success without proving rotation worked. We
+                            rebuilt the test using independently sourced values and
+                            confirmed the old token was rejected.
+                        </p>
+
+                        <div class="failure-lesson">
+                            <span>Lesson</span>
+                            <strong>A passing test can still test the wrong thing.</strong>
+                        </div>
+                    </article>
+
+                    <article class="failure-card">
+                        <p class="failure-number">04</p>
+
+                        <h3>The safety check had a hole.</h3>
+
+                        <p>
+                            A preflight script claimed to detect committed private keys,
+                            but its grep pattern was being interpreted as command options.
+                        </p>
+
+                        <p class="failure-response">
+                            The bug only surfaced because we tested the security tool
+                            against deliberately bad input instead of running it solely
+                            against a clean repository.
+                        </p>
+
+                        <div class="failure-lesson">
+                            <span>Lesson</span>
+                            <strong>Security tooling needs known-bad tests.</strong>
+                        </div>
+                    </article>
+                </div>
+
+                <blockquote class="dark-quote">
+                    AI was confidently wrong sometimes.<br><br>
+                    So was I.<br><br>
+                    The useful part was building a workflow where neither of us got the
+                    final word without evidence.
+                </blockquote>
+            </div>
+        </section>
+
+        <section id="changed-my-mind" class="beliefs-section">
+            <div class="section-inner">
+                <p class="chapter-label">BUILD 06 · WHAT CHANGED</p>
+
+                <div class="section-heading">
+                    <h2>AI changed my mind.</h2>
+
+                    <p>
+                        Not because it gave me better answers.
+                        Because building with it forced me to ask better questions.
+                    </p>
+                </div>
+
+                <div class="belief-list">
+                    <article class="belief-row">
+                        <div class="belief-before">
+                            <span>Before</span>
+                            <p>AI is mostly about writing better prompts.</p>
+                        </div>
+
+                        <div class="belief-arrow" aria-hidden="true">→</div>
+
+                        <div class="belief-after">
+                            <span>Now</span>
+                            <p>Context, memory, and operating instructions matter more.</p>
+                        </div>
+                    </article>
+
+                    <article class="belief-row">
+                        <div class="belief-before">
+                            <span>Before</span>
+                            <p>Documentation is something you write after the work.</p>
+                        </div>
+
+                        <div class="belief-arrow" aria-hidden="true">→</div>
+
+                        <div class="belief-after">
+                            <span>Now</span>
+                            <p>Documentation is shared memory for humans and agents.</p>
+                        </div>
+                    </article>
+
+                    <article class="belief-row">
+                        <div class="belief-before">
+                            <span>Before</span>
+                            <p>A strong AI model should know what to do.</p>
+                        </div>
+
+                        <div class="belief-arrow" aria-hidden="true">→</div>
+
+                        <div class="belief-after">
+                            <span>Now</span>
+                            <p>Great agents still need standards, feedback, and boundaries.</p>
+                        </div>
+                    </article>
+
+                    <article class="belief-row">
+                        <div class="belief-before">
+                            <span>Before</span>
+                            <p>Shipping code is the outcome.</p>
+                        </div>
+
+                        <div class="belief-arrow" aria-hidden="true">→</div>
+
+                        <div class="belief-after">
+                            <span>Now</span>
+                            <p>Shipping understanding makes the next change safer.</p>
+                        </div>
+                    </article>
+
+                    <article class="belief-row">
+                        <div class="belief-before">
+                            <span>Before</span>
+                            <p>AI lowers the bar for building software.</p>
+                        </div>
+
+                        <div class="belief-arrow" aria-hidden="true">→</div>
+
+                        <div class="belief-after">
+                            <span>Now</span>
+                            <p>AI raises the bar for judgment, taste, and verification.</p>
+                        </div>
+                    </article>
+                </div>
+
+                <p class="belief-summary">
+                    I do not think the future belongs to people who hand their judgment
+                    to AI.<br><br>
+                    I think it belongs to people who learn how to lead it well.
+                </p>
+            </div>
+        </section>
+
         <section class="placeholder-section">
             <div class="section-inner narrow">
-                <p class="chapter-label">BUILD 05 · STILL BUILDING</p>
+                <p class="chapter-label">BUILD 07 · STILL BUILDING</p>
 
                 <h2>The rest of the story is being built right now.</h2>
 
