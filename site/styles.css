@@ -133,20 +133,15 @@ code {
 
 /* Opening story */
 
-.story-section,
-.placeholder-section {
+.story-section {
     display: flex;
     min-height: 100vh;
     align-items: center;
     padding: 120px 0;
-}
-
-.story-section {
     background: var(--surface);
 }
 
-.story-section h2,
-.placeholder-section h2 {
+.story-section h2 {
     max-width: 680px;
     margin: 0 0 50px;
     font-size: clamp(3rem, 8vw, 6.5rem);
@@ -169,12 +164,6 @@ code {
     font-weight: 650;
     letter-spacing: -0.04em;
     line-height: 1.15;
-}
-
-.placeholder-section p:not(.chapter-label) {
-    max-width: 630px;
-    color: var(--muted);
-    font-size: 1.15rem;
 }
 
 /* Project section */
@@ -758,8 +747,7 @@ footer {
         margin-top: 60px;
     }
 
-    .story-section,
-    .placeholder-section {
+    .story-section {
         min-height: auto;
         padding: 110px 0;
     }

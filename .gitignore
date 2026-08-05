@@ -1,0 +1,13 @@
+# Local agent + editor state
+.claude/settings.local.json
+.vscode/
+.idea/
+
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor backups
+*~
+*.swp
