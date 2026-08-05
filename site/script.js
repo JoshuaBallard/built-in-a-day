@@ -1,6 +1,125 @@
 "use strict";
 
 /**
+ * Chapter navigation.
+ *
+ * The contents menu is a <details> element, so it opens, closes, and handles
+ * keyboard focus on its own with no JavaScript. Everything below is additive:
+ * scroll progress, which chapter you are in, and the small courtesies people
+ * expect from a menu — Escape to close, click outside to dismiss.
+ */
+
+const header = document.querySelector("[data-header]");
+const progressBar = document.querySelector("[data-progress]");
+const contents = document.querySelector("[data-contents]");
+const positionLabel = document.querySelector("[data-position]");
+
+const chapterLinks = Array.from(
+    document.querySelectorAll("[data-chapter-link]"),
+);
+
+const chapters = chapterLinks
+    .map((link) => ({
+        link,
+        section: document.querySelector(link.getAttribute("href")),
+    }))
+    .filter((chapter) => chapter.section);
+
+let activeChapter = -1;
+
+function setActiveChapter(index) {
+    if (index === activeChapter) {
+        return;
+    }
+
+    activeChapter = index;
+
+    chapters.forEach((chapter, i) => {
+        if (i === index) {
+            chapter.link.setAttribute("aria-current", "true");
+        } else {
+            chapter.link.removeAttribute("aria-current");
+        }
+    });
+
+    if (positionLabel) {
+        const number = String(index + 1).padStart(2, "0");
+        const total = String(chapters.length).padStart(2, "0");
+        positionLabel.textContent = `${number} / ${total}`;
+    }
+}
+
+function syncToScroll() {
+    const scrolled = window.scrollY;
+
+    if (header) {
+        // Transparent over the hero, solid once the reader has moved on.
+        header.toggleAttribute("data-top", scrolled < 80);
+    }
+
+    if (progressBar) {
+        const scrollable =
+            document.documentElement.scrollHeight - window.innerHeight;
+        const ratio = scrollable > 0 ? Math.min(scrolled / scrollable, 1) : 0;
+        progressBar.style.width = `${(ratio * 100).toFixed(2)}%`;
+    }
+
+    // The current chapter is the last one whose top has passed the header.
+    let current = 0;
+
+    chapters.forEach((chapter, i) => {
+        if (chapter.section.getBoundingClientRect().top <= 120) {
+            current = i;
+        }
+    });
+
+    setActiveChapter(current);
+}
+
+if (chapters.length > 0) {
+    let queued = false;
+
+    const onScroll = () => {
+        if (queued) {
+            return;
+        }
+
+        queued = true;
+
+        requestAnimationFrame(() => {
+            queued = false;
+            syncToScroll();
+        });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    syncToScroll();
+}
+
+if (contents) {
+    // Jumping to a chapter should not leave the menu hanging open behind you.
+    contents.addEventListener("click", (event) => {
+        if (event.target.closest("[data-chapter-link]")) {
+            contents.open = false;
+        }
+    });
+
+    document.addEventListener("click", (event) => {
+        if (contents.open && !contents.contains(event.target)) {
+            contents.open = false;
+        }
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && contents.open) {
+            contents.open = false;
+            contents.querySelector("summary")?.focus();
+        }
+    });
+}
+
+/**
  * Live build log.
  *
  * The log in index.html is the source of truth. It renders with JavaScript
