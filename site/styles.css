@@ -6,6 +6,12 @@
     --border: #deded8;
     --accent: #315efb;
 
+    /*
+     * The light accent only reaches 3.2:1 against the dark surface, which is
+     * right at the edge for a focus ring. Dark sections get a lighter one.
+     */
+    --accent-dark: #7d9bff;
+
     /* Dark sections reuse one palette instead of ad-hoc hex values */
     --dark-surface: #20201f;
     --dark-border: #343432;
@@ -20,6 +26,21 @@
         Consolas,
         "Liberation Mono",
         monospace;
+}
+
+/*
+ * Inter is self-hosted rather than loaded from a CDN. The whole type system
+ * leans on variable weights (430, 450, 650, 720, 750) and tight negative
+ * tracking; with a static fallback those weights collapse to 400 and 700 and
+ * the design stops being the design. Self-hosting also keeps the page working
+ * with no third-party requests.
+ */
+@font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400 800;
+    font-display: swap;
+    src: url("assets/fonts/inter-latin.woff2") format("woff2");
 }
 
 * {
@@ -47,6 +68,20 @@ body {
 
 a {
     color: inherit;
+}
+
+/*
+ * Keyboard focus was previously invisible: no focus styles at all, and the
+ * browser default outline is nearly unreadable on the dark sections.
+ */
+:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 3px;
+}
+
+.section-dark :focus-visible {
+    outline-color: var(--accent-dark);
 }
 
 code {
@@ -97,6 +132,7 @@ code {
 .hero {
     display: flex;
     min-height: 100vh;
+    min-height: 100svh; /* iOS chrome makes 100vh overflow */
     align-items: center;
     padding: 70px 0;
 }
@@ -161,6 +197,7 @@ code {
 .story-section {
     display: flex;
     min-height: 100vh;
+    min-height: 100svh; /* iOS chrome makes 100vh overflow */
     align-items: center;
     padding: 120px 0;
     background: var(--surface);
@@ -861,6 +898,7 @@ blockquote {
 .closing-section {
     display: flex;
     min-height: 100vh;
+    min-height: 100svh; /* iOS chrome makes 100vh overflow */
     align-items: center;
 }
 
@@ -942,6 +980,46 @@ footer {
     background: var(--accent);
 }
 
+/*
+ * Tablet.
+ *
+ * The case studies used to stack only at 700px, so a two-column grid with a
+ * 340px minimum on the screenshot survived all the way down. At an iPad's
+ * 768px portrait width that left the text column roughly 178px wide holding a
+ * 38px headline. This is the range that was actually broken.
+ */
+
+@media (max-width: 1000px) {
+    .case-study,
+    .case-study-reverse {
+        grid-template-columns: 1fr;
+        gap: 44px;
+        padding: 44px;
+    }
+
+    .case-study-reverse .case-study-content,
+    .case-study-reverse .build-receipt {
+        order: initial;
+    }
+
+    .section-heading {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .build-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ledger {
+        grid-template-columns: 1fr;
+    }
+
+    .receipt-live {
+        min-height: 240px;
+    }
+}
+
 /* Mobile */
 
 @media (max-width: 700px) {
@@ -979,7 +1057,6 @@ footer {
     }
 
     .build-stats {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
         margin-bottom: 55px;
     }
 
@@ -997,10 +1074,6 @@ footer {
         text-align: left;
     }
 
-    .ledger {
-        grid-template-columns: 1fr;
-    }
-
     .ledger-column {
         padding: 28px;
     }
@@ -1009,21 +1082,10 @@ footer {
         margin-top: 60px;
     }
 
-    .section-heading {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-
     .case-study,
     .case-study-reverse {
-        grid-template-columns: 1fr;
         gap: 40px;
         padding: 28px;
-    }
-
-    .case-study-reverse .case-study-content,
-    .case-study-reverse .build-receipt {
-        order: initial;
     }
 
     .receipt-live {
