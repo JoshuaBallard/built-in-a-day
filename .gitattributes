@@ -1,0 +1,12 @@
+# Normalize all text files to LF in the repository.
+# Without this, line endings depend on whoever cloned it last, and a one-line
+# content change shows up as a whole-file rewrite in the diff.
+* text=auto eol=lf
+
+# Binary assets must never be touched.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff2 binary
