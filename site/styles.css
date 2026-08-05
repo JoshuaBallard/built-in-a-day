@@ -6,8 +6,20 @@
     --border: #deded8;
     --accent: #315efb;
 
+    /* Dark sections reuse one palette instead of ad-hoc hex values */
+    --dark-surface: #20201f;
+    --dark-border: #343432;
+    --dark-muted: #aaa9a3;
+    --dark-dim: #888884;
+
     --page-width: 1180px;
     --reading-width: 760px;
+
+    --mono:
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        monospace;
 }
 
 * {
@@ -41,12 +53,25 @@ code {
     padding: 0.12em 0.35em;
     border-radius: 0.35em;
     background: var(--background);
-    font-family:
-        "SFMono-Regular",
-        Consolas,
-        "Liberation Mono",
-        monospace;
+    font-family: var(--mono);
     font-size: 0.92em;
+}
+
+/* Shared dark-section treatment */
+
+.section-dark {
+    background: var(--text);
+    color: var(--background);
+}
+
+.section-dark .chapter-label,
+.section-dark .section-heading > p {
+    color: var(--dark-muted);
+}
+
+.section-dark code {
+    background: var(--dark-surface);
+    color: var(--dark-muted);
 }
 
 .section-inner {
@@ -361,7 +386,7 @@ code {
 
 .receipt-live span {
     margin-bottom: 10px;
-    color: #aaa9a3;
+    color: var(--dark-muted);
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -376,7 +401,108 @@ code {
 
 .receipt-live p {
     margin: 14px 0 0;
-    color: #aaa9a3;
+    color: var(--dark-muted);
+}
+
+/* Build receipts — the live PR log */
+
+.receipts-section {
+    padding: 140px 0;
+}
+
+.build-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin: 0 0 70px;
+}
+
+.build-stats div {
+    padding: 28px;
+    border: 1px solid var(--dark-border);
+    border-radius: 20px;
+    background: var(--dark-surface);
+}
+
+.build-stats dt {
+    color: var(--dark-dim);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.build-stats dd {
+    margin: 14px 0 0;
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    line-height: 1;
+}
+
+.build-log {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--dark-border);
+}
+
+.build-log li {
+    display: grid;
+    grid-template-columns: 110px minmax(0, 1fr) auto;
+    gap: 30px;
+    align-items: baseline;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--dark-border);
+}
+
+.log-time,
+.log-meta {
+    margin: 0;
+    color: var(--dark-dim);
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.log-meta {
+    text-align: right;
+}
+
+.log-meta a {
+    text-decoration: none;
+}
+
+.log-meta a:hover {
+    color: var(--background);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.build-log h3 {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 650;
+    letter-spacing: -0.02em;
+    line-height: 1.35;
+}
+
+.log-body p {
+    margin: 8px 0 0;
+    color: var(--dark-muted);
+    font-size: 0.9rem;
+}
+
+.build-log-note {
+    max-width: 640px;
+    margin: 30px 0 0;
+    color: var(--dark-dim);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.build-log-note[data-live] {
+    color: var(--dark-muted);
 }
 
 /* Ballards Platform */
@@ -439,16 +565,6 @@ blockquote {
     padding: 140px 0;
 }
 
-.lessons-section-dark {
-    background: var(--text);
-    color: var(--background);
-}
-
-.lessons-section-dark .chapter-label,
-.lessons-section-dark .section-heading > p {
-    color: #aaa9a3;
-}
-
 .failure-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -460,14 +576,14 @@ blockquote {
     min-height: 430px;
     flex-direction: column;
     padding: 36px;
-    border: 1px solid #343432;
+    border: 1px solid var(--dark-border);
     border-radius: 24px;
-    background: #20201f;
+    background: var(--dark-surface);
 }
 
 .failure-number {
     margin: 0 0 45px;
-    color: #888884;
+    color: var(--dark-dim);
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -486,20 +602,20 @@ blockquote {
 }
 
 .failure-response {
-    color: #b8b8b2;
+    color: var(--dark-muted);
     line-height: 1.65;
 }
 
 .failure-lesson {
     margin-top: auto;
     padding-top: 28px;
-    border-top: 1px solid #3a3a38;
+    border-top: 1px solid var(--dark-border);
 }
 
 .failure-lesson span {
     display: block;
     margin-bottom: 8px;
-    color: #888884;
+    color: var(--dark-dim);
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -665,16 +781,91 @@ blockquote {
     font-weight: 450;
 }
 
+/* The honest part */
+
+.honest-section {
+    padding: 150px 0;
+    background: var(--surface);
+}
+
+.ledger {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.ledger-column {
+    padding: 44px;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+}
+
+.ledger-gap {
+    background: var(--background);
+}
+
+.ledger-strength {
+    border-color: var(--text);
+}
+
+.ledger-column h3 {
+    margin: 0 0 30px;
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    letter-spacing: -0.04em;
+}
+
+.ledger-column ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ledger-column li {
+    padding: 18px 0;
+    border-top: 1px solid var(--border);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.ledger-gap li {
+    color: var(--muted);
+}
+
+.ledger-column > p {
+    margin: 28px 0 0;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+.honest-verdict {
+    max-width: var(--reading-width);
+    margin: 90px 0 0;
+    font-size: clamp(1.15rem, 2vw, 1.4rem);
+    line-height: 1.7;
+}
+
+.honest-verdict p {
+    margin: 0 0 1.4em;
+}
+
+.honest-emphasis {
+    font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+    font-weight: 650;
+    letter-spacing: -0.04em;
+    line-height: 1.2;
+}
+
+/* Closing */
+
 .closing-section {
     display: flex;
     min-height: 100vh;
     align-items: center;
-    background: var(--text);
-    color: var(--background);
 }
 
-.closing-section .chapter-label {
-    color: #aaa9a3;
+.closing-ask {
+    font-weight: 700;
 }
 
 .closing-emphasis {
@@ -687,7 +878,7 @@ blockquote {
 
 .signature {
     margin-top: 2.2em !important;
-    color: #aaa9a3;
+    color: var(--dark-muted);
 }
 
 .closing-links {
@@ -699,7 +890,7 @@ blockquote {
 
 .closing-links a {
     padding: 11px 16px;
-    border: 1px solid #3a3a38;
+    border: 1px solid var(--dark-border);
     border-radius: 999px;
     color: var(--background);
     font-size: 0.9rem;
@@ -712,12 +903,12 @@ blockquote {
 
 .closing-links a:hover {
     border-color: #5a5a56;
-    background: #20201f;
+    background: var(--dark-surface);
 }
 
 .final-mark {
     margin-top: 110px;
-    color: #aaa9a3;
+    color: var(--dark-muted);
     font-size: 0.85rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -776,13 +967,46 @@ footer {
     }
 
     .projects-section,
+    .receipts-section,
     .platform-section,
     .lessons-section,
     .beliefs-section,
     .obvious-story-section,
     .why-obvious-section,
+    .honest-section,
     .closing-section {
         padding: 110px 0;
+    }
+
+    .build-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin-bottom: 55px;
+    }
+
+    .build-stats div {
+        padding: 22px;
+    }
+
+    .build-log li {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        padding: 22px 0;
+    }
+
+    .log-meta {
+        text-align: left;
+    }
+
+    .ledger {
+        grid-template-columns: 1fr;
+    }
+
+    .ledger-column {
+        padding: 28px;
+    }
+
+    .honest-verdict {
+        margin-top: 60px;
     }
 
     .section-heading {
