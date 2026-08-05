@@ -27,8 +27,52 @@
 </head>
 
 <body>
+    <a class="skip-link" href="#hello">Skip to the story</a>
+
+    <header class="site-header" data-header>
+        <div class="section-inner header-inner">
+            <a class="wordmark" href="#top">
+                Built in a Day
+                <span>Josh Ballard</span>
+            </a>
+
+            <!--
+                A <details> element rather than a scripted dropdown: the
+                contents open, close, and take keyboard focus with no
+                JavaScript at all. Script only adds the niceties on top.
+            -->
+            <details class="contents" data-contents>
+                <summary>
+                    <span class="contents-position" data-position>
+                        01 / 11
+                    </span>
+
+                    <span>Contents</span>
+                </summary>
+
+                <nav aria-label="Chapters">
+                    <ol class="contents-list">
+                        <li><a href="#top" data-chapter-link>Built in a Day</a></li>
+                        <li><a href="#hello" data-chapter-link>Why this exists</a></li>
+                        <li><a href="#projects" data-chapter-link>Questions that became projects</a></li>
+                        <li><a href="#receipts" data-chapter-link>The receipts</a></li>
+                        <li><a href="#ballards-platform" data-chapter-link>Things escalated</a></li>
+                        <li><a href="#failures" data-chapter-link>Reality check</a></li>
+                        <li><a href="#changed-my-mind" data-chapter-link>What changed</a></li>
+                        <li><a href="#obvious-story" data-chapter-link>Why Obvious</a></li>
+                        <li><a href="#the-thread" data-chapter-link>The thread</a></li>
+                        <li><a href="#honest-part" data-chapter-link>The honest part</a></li>
+                        <li><a href="#closing" data-chapter-link>The ask</a></li>
+                    </ol>
+                </nav>
+            </details>
+        </div>
+
+        <div class="scroll-progress" data-progress aria-hidden="true"></div>
+    </header>
+
     <main>
-        <section class="hero" aria-labelledby="hero-title">
+        <section id="top" class="hero" aria-labelledby="hero-title">
             <div class="section-inner">
                 <p class="chapter-label">BUILD 01 · WEDNESDAY AFTERNOON</p>
 
@@ -860,7 +904,7 @@
             </div>
         </section>
 
-        <section id="why-obvious" class="why-obvious-section">
+        <section id="the-thread" class="why-obvious-section">
             <div class="section-inner narrow">
                 <p class="chapter-label">BUILD 09 · THE THREAD</p>
 

@@ -92,6 +92,199 @@ code {
     font-size: 0.92em;
 }
 
+/* Skip link and header */
+
+.skip-link {
+    position: fixed;
+    z-index: 60;
+    top: 14px;
+    left: 14px;
+    padding: 12px 20px;
+    border-radius: 999px;
+    background: var(--text);
+    color: var(--background);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transform: translateY(-250%);
+    transition: transform 160ms ease;
+}
+
+.skip-link:focus-visible {
+    transform: none;
+}
+
+/*
+ * Opaque by default so the header stays readable over the dark sections with
+ * JavaScript disabled. Script adds data-top while the hero is in view, which
+ * clears the background and lets the hero stay as empty as it was designed.
+ */
+.site-header {
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    right: 0;
+    left: 0;
+    border-bottom: 1px solid var(--border);
+    background: rgba(247, 247, 243, 0.85);
+    backdrop-filter: blur(14px);
+    transition:
+        background 200ms ease,
+        border-color 200ms ease;
+}
+
+.site-header[data-top] {
+    border-bottom-color: transparent;
+    background: transparent;
+    backdrop-filter: none;
+}
+
+.header-inner {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 0;
+}
+
+.wordmark {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.85rem;
+    font-weight: 750;
+    letter-spacing: -0.015em;
+    line-height: 1.3;
+    text-decoration: none;
+}
+
+.wordmark span {
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 450;
+    letter-spacing: 0;
+}
+
+.scroll-progress {
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 90ms linear;
+}
+
+/* Chapter contents */
+
+.contents {
+    position: relative;
+}
+
+.contents summary {
+    display: inline-flex;
+    gap: 12px;
+    align-items: center;
+    padding: 9px 17px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 700;
+    list-style: none;
+    transition:
+        background 160ms ease,
+        border-color 160ms ease,
+        color 160ms ease;
+}
+
+.contents summary::-webkit-details-marker {
+    display: none;
+}
+
+.contents summary::marker {
+    content: "";
+}
+
+.contents summary:hover {
+    border-color: var(--text);
+}
+
+.contents[open] summary {
+    border-color: var(--text);
+    background: var(--text);
+    color: var(--background);
+}
+
+.contents-position {
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+
+.contents[open] .contents-position {
+    color: var(--dark-muted);
+}
+
+.contents nav {
+    position: absolute;
+    z-index: 5;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 290px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--surface);
+    box-shadow: 0 26px 55px -32px rgba(23, 23, 23, 0.55);
+}
+
+.contents-list {
+    margin: 0;
+    padding: 0;
+    counter-reset: chapter;
+    list-style: none;
+}
+
+.contents-list li {
+    counter-increment: chapter;
+}
+
+.contents-list a {
+    display: flex;
+    gap: 13px;
+    align-items: baseline;
+    padding: 9px 12px;
+    border-radius: 11px;
+    color: var(--muted);
+    font-size: 0.88rem;
+    text-decoration: none;
+    transition:
+        background 140ms ease,
+        color 140ms ease;
+}
+
+.contents-list a::before {
+    content: counter(chapter, decimal-leading-zero);
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 0.75rem;
+}
+
+.contents-list a:hover {
+    background: var(--background);
+    color: var(--text);
+}
+
+.contents-list a[aria-current="true"] {
+    background: var(--background);
+    color: var(--text);
+    font-weight: 700;
+}
+
+/* The fixed header must not cover a section you just jumped to. */
+main section {
+    scroll-margin-top: 74px;
+}
+
 /* Shared dark-section treatment */
 
 .section-dark {
@@ -1023,6 +1216,22 @@ footer {
 /* Mobile */
 
 @media (max-width: 700px) {
+    .header-inner {
+        padding: 11px 0;
+    }
+
+    .wordmark span {
+        display: none;
+    }
+
+    .contents nav {
+        width: min(290px, calc(100vw - 40px));
+    }
+
+    main section {
+        scroll-margin-top: 62px;
+    }
+
     .hero {
         padding: 45px 0;
     }
