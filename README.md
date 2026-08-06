@@ -33,6 +33,7 @@ Five minutes. That's the whole ask.
 | [START_HERE.md](START_HERE.md) | How to explore this in five minutes |
 | [site/](site/) | The experience itself — static HTML, CSS, and vanilla JS |
 | [planning/](planning/) | What I wrote *before* building, and where it turned out wrong |
+| [research/](research/) | What I learned about Obvious, including what I got wrong |
 | [CLAUDE.md](CLAUDE.md) | The operating instructions I gave my AI collaborator |
 | [Issues](https://github.com/JoshuaBallard/built-in-a-day/issues) | How I scoped the work before writing any code |
 | [Pull requests](https://github.com/JoshuaBallard/built-in-a-day/pulls) | How it actually got built |

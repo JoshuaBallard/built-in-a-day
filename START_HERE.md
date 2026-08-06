@@ -64,6 +64,8 @@ If you only have two minutes, read **04**, **06**, and **11**.
   timestamps included, because the timeline is part of the point
 - **[planning/](planning/)** — what I wrote before building, and a note on
   where the plan turned out to be wrong
+- **[research/](research/)** — what I understood about Obvious, what I got
+  right before I had the evidence, and what I got wrong
 - **[CLAUDE.md](CLAUDE.md)** — the operating instructions I wrote for my AI
   collaborator, which is the part I'd most want to talk about
 
