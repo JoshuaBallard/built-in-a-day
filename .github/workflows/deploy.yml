@@ -1,8 +1,6 @@
-# Publishes site/ to GitHub Pages.
+# Publishes site/ to GitHub Pages on every push to main.
 #
-# The repository is private while this is being finished, and Pages will not
-# publish from a private repository on a free plan. This workflow is here and
-# ready; it starts succeeding the moment the repository is made public.
+# There is no build step, which is the point. The artifact is the source.
 name: Deploy site
 
 on:
