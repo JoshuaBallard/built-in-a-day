@@ -735,6 +735,33 @@ main section {
     color: var(--dark-muted);
 }
 
+.repo-link {
+    display: inline-flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 34px;
+    padding: 15px 26px;
+    border-radius: 999px;
+    background: var(--background);
+    color: var(--text);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 160ms ease;
+}
+
+.repo-link:hover {
+    transform: translateX(4px);
+}
+
+.repo-hint {
+    max-width: 520px;
+    margin: 22px 0 0;
+    color: var(--dark-dim);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
 /* Ballards Platform */
 
 .platform-section {
