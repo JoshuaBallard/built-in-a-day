@@ -44,7 +44,7 @@
             <details class="contents" data-contents>
                 <summary>
                     <span class="contents-position" data-position>
-                        01 / 11
+                        01 / 12
                     </span>
 
                     <span>Contents</span>
@@ -60,6 +60,7 @@
                         <li><a href="#failures" data-chapter-link>Reality check</a></li>
                         <li><a href="#changed-my-mind" data-chapter-link>What changed</a></li>
                         <li><a href="#obvious-story" data-chapter-link>Why Obvious</a></li>
+                        <li><a href="#one-idea" data-chapter-link>One idea</a></li>
                         <li><a href="#the-thread" data-chapter-link>The thread</a></li>
                         <li><a href="#honest-part" data-chapter-link>The honest part</a></li>
                         <li><a href="#closing" data-chapter-link>The ask</a></li>
@@ -904,9 +905,186 @@
             </div>
         </section>
 
+        <section id="one-idea" class="idea-section">
+            <div class="section-inner">
+                <p class="chapter-label">BUILD 09 · ONE IDEA</p>
+
+                <div class="section-heading">
+                    <h2>One thing I could not stop thinking about.</h2>
+
+                    <p>
+                        I have never used your product. I am not going to
+                        pretend I know it better than you do. This is one
+                        problem I hit with every agent I build, and the
+                        question I would want to ask on day one.
+                    </p>
+                </div>
+
+                <div class="idea-body">
+                    <div class="idea-column">
+                        <h3>The observation</h3>
+
+                        <p>
+                            Every failure in chapter six looked like a success
+                            first. The health check reported healthy. The
+                            rotation test passed. The security script said the
+                            repository was clean.
+                        </p>
+
+                        <p>
+                            None of them were wrong about what they measured.
+                            They were wrong about what I assumed they measured.
+                        </p>
+
+                        <p>
+                            When AI hands me finished work, I get the same
+                            feeling. The output is confident and well
+                            formatted. What I cannot see is which parts were
+                            verified, which were inferred, and which were
+                            quietly guessed.
+                        </p>
+
+                        <h3>The question</h3>
+
+                        <p class="idea-question">
+                            What if an artifact carried its own receipt?
+                        </p>
+
+                        <p>
+                            Not footnotes. Not a citation list bolted to the
+                            bottom. A small, permanent, inspectable surface
+                            that answers one question: how much of this should
+                            I trust without checking?
+                        </p>
+
+                        <p>
+                            Three states, not one confidence score.
+                            <strong>Verified</strong> means the agent
+                            actually checked it. <strong>Inferred</strong>
+                            means it followed from something verified.
+                            <strong>Unconfirmed</strong> means it could not
+                            check, and is saying so out loud.
+                        </p>
+                    </div>
+
+                    <div class="idea-column">
+                        <figure class="idea-mock">
+                            <div class="mock-frame">
+                                <div class="mock-chrome" aria-hidden="true">
+                                    <span></span><span></span><span></span>
+                                </div>
+
+                                <div class="mock-body">
+                                    <p class="mock-title">
+                                        Q3 supplier cost analysis
+                                    </p>
+
+                                    <div class="mock-lines" aria-hidden="true">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+
+                                    <ul class="mock-receipt">
+                                        <li class="is-verified">
+                                            <span>Verified</span>
+                                            Pulled from the 4 uploaded invoices
+                                        </li>
+
+                                        <li class="is-inferred">
+                                            <span>Inferred</span>
+                                            Q4 projection extends the Q1–Q3 trend
+                                        </li>
+
+                                        <li class="is-unconfirmed">
+                                            <span>Unconfirmed</span>
+                                            Freight rates — no source found
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <figcaption>
+                                A sketch, not a spec. The point is the receipt
+                                strip, not the layout.
+                            </figcaption>
+                        </figure>
+
+                        <h3>Why I think it matters</h3>
+
+                        <p>
+                            The bottleneck in AI work is not generation
+                            anymore. It is the review pass a person has to do
+                            before they will put their name on it. Right now
+                            that review is all-or-nothing, because nothing in
+                            the output tells you where to look.
+                        </p>
+
+                        <p>
+                            Marking the unconfirmed parts does not make the
+                            work look weaker. It makes the rest of it credible.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="idea-risks">
+                    <div>
+                        <h3>What I would worry about</h3>
+
+                        <ul>
+                            <li>
+                                A model rating its own confidence is the same
+                                problem one layer up. This only works if
+                                "verified" maps to something that actually
+                                ran.
+                            </li>
+
+                            <li>
+                                Three labels on everything becomes noise fast.
+                                It probably has to stay collapsed until
+                                someone asks.
+                            </li>
+
+                            <li>
+                                It could read as the product hedging, which is
+                                a real cost to how finished the work feels.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>What I do not know</h3>
+
+                        <ul>
+                            <li>
+                                Whether your users want this, or whether they
+                                want to stop thinking about it entirely.
+                            </li>
+
+                            <li>
+                                Whether provenance survives once work moves
+                                between agents, which is the hard version of
+                                the problem.
+                            </li>
+
+                            <li>
+                                Whether you have already built this and I am
+                                describing your roadmap back to you.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p class="idea-close">
+                    I could be wrong about all of it. I would enjoy being told
+                    why.
+                </p>
+            </div>
+        </section>
+
         <section id="the-thread" class="why-obvious-section">
             <div class="section-inner narrow">
-                <p class="chapter-label">BUILD 09 · THE THREAD</p>
+                <p class="chapter-label">BUILD 10 · THE THREAD</p>
 
                 <h2>Why Obvious?</h2>
 
@@ -948,7 +1126,7 @@
 
         <section id="honest-part" class="honest-section">
             <div class="section-inner">
-                <p class="chapter-label">BUILD 10 · THE HONEST PART</p>
+                <p class="chapter-label">BUILD 11 · THE HONEST PART</p>
 
                 <div class="section-heading">
                     <h2>Let me save you the guessing.</h2>
@@ -1055,7 +1233,7 @@
 
         <section id="closing" class="closing-section section-dark">
             <div class="section-inner narrow">
-                <p class="chapter-label">BUILD 11 · THE ASK</p>
+                <p class="chapter-label">BUILD 12 · THE ASK</p>
 
                 <h2>If this resonated...</h2>
 

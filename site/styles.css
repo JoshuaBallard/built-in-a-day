@@ -1011,6 +1011,196 @@ blockquote {
     font-weight: 450;
 }
 
+/* One idea */
+
+.idea-section {
+    padding: 150px 0;
+    background: var(--surface);
+}
+
+.idea-body {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 70px;
+    align-items: start;
+}
+
+.idea-column h3 {
+    margin: 0 0 22px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.idea-column h3:not(:first-child) {
+    margin-top: 50px;
+}
+
+.idea-column p {
+    margin: 0 0 1.4em;
+    font-size: 1.08rem;
+    line-height: 1.75;
+}
+
+.idea-question {
+    font-size: clamp(1.7rem, 3.5vw, 2.6rem) !important;
+    font-weight: 650;
+    letter-spacing: -0.045em;
+    line-height: 1.15;
+}
+
+/* Sketch of the idea, drawn in CSS rather than shipped as an image. */
+
+.idea-mock {
+    margin: 0 0 20px;
+}
+
+.mock-frame {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--surface);
+    box-shadow: 0 20px 45px -30px rgba(23, 23, 23, 0.5);
+}
+
+.mock-chrome {
+    display: flex;
+    gap: 7px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--background);
+}
+
+.mock-chrome span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #d4d4cd;
+}
+
+.mock-body {
+    padding: 26px;
+}
+
+.mock-title {
+    margin: 0 0 20px !important;
+    font-size: 1.1rem !important;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.mock-lines {
+    display: grid;
+    gap: 9px;
+    margin-bottom: 26px;
+}
+
+.mock-lines span {
+    height: 9px;
+    border-radius: 999px;
+    background: var(--border);
+}
+
+.mock-lines span:nth-child(2) {
+    width: 88%;
+}
+
+.mock-lines span:nth-child(3) {
+    width: 62%;
+}
+
+.mock-receipt {
+    margin: 0;
+    padding: 20px 0 0;
+    border-top: 1px solid var(--border);
+    list-style: none;
+}
+
+.mock-receipt li {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    padding: 9px 0;
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.mock-receipt span {
+    flex-shrink: 0;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+/*
+ * Colour is doubled with the label text, never carrying the meaning alone.
+ */
+.is-verified span {
+    background: #dceee0;
+    color: #1c5c33;
+}
+
+.is-inferred span {
+    background: #e2e8fb;
+    color: #26418c;
+}
+
+.is-unconfirmed span {
+    background: #f6e5d6;
+    color: #7c4413;
+}
+
+.idea-risks {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 80px;
+}
+
+.idea-risks > div {
+    padding: 38px;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    background: var(--background);
+}
+
+.idea-risks h3 {
+    margin: 0 0 22px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.idea-risks ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.idea-risks li {
+    padding: 16px 0;
+    border-top: 1px solid var(--border);
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+.idea-close {
+    max-width: var(--reading-width);
+    margin: 70px 0 0;
+    font-size: clamp(1.4rem, 3vw, 2.1rem);
+    font-weight: 650;
+    letter-spacing: -0.04em;
+    line-height: 1.25;
+}
+
 /* The honest part */
 
 .honest-section {
@@ -1204,8 +1394,14 @@ footer {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .ledger {
+    .ledger,
+    .idea-body,
+    .idea-risks {
         grid-template-columns: 1fr;
+    }
+
+    .idea-body {
+        gap: 50px;
     }
 
     .receipt-live {
@@ -1260,9 +1456,18 @@ footer {
     .beliefs-section,
     .obvious-story-section,
     .why-obvious-section,
+    .idea-section,
     .honest-section,
     .closing-section {
         padding: 110px 0;
+    }
+
+    .idea-risks > div {
+        padding: 28px;
+    }
+
+    .idea-risks {
+        margin-top: 55px;
     }
 
     .build-stats {
