@@ -32,21 +32,37 @@ Five minutes. That's the whole ask.
 |---|---|
 | [START_HERE.md](START_HERE.md) | How to explore this in five minutes |
 | [site/](site/) | The experience itself — static HTML, CSS, and vanilla JS |
+| [planning/](planning/) | What I wrote *before* building, and where it turned out wrong |
 | [CLAUDE.md](CLAUDE.md) | The operating instructions I gave my AI collaborator |
 | [Issues](https://github.com/JoshuaBallard/built-in-a-day/issues) | How I scoped the work before writing any code |
 | [Pull requests](https://github.com/JoshuaBallard/built-in-a-day/pulls) | How it actually got built |
 
 ---
 
+## The short version
+
+Your posting asks for at least three pull requests on the first day.
+
+This is the first day. There are twelve, every one of them on a branch, and
+chapter four of the site is the log.
+
+---
+
 ## Why it's static
 
-No React. No TypeScript. No build step.
+No React. No TypeScript. No build step. No dependencies.
 
-Your posting asks for both, and I'll be straight with you about where I stand on
-that in the experience itself. But I wasn't going to spend the one day I had
-learning a framework in public just to put its name on a landing page.
+Your posting asks for both React and TypeScript, and I don't have professional
+tenure in either. Chapter eleven says so plainly, along with what I do bring.
 
-I'd rather show you the judgment than the checkbox.
+I wasn't going to spend the one day I had learning a framework in public just
+to put its name on a landing page. I'd rather show you the judgment than the
+checkbox.
+
+What the site does do: progressive enhancement that survives every failure
+mode, a live GitHub API integration with a static fallback, self-hosted
+variable-font typography, keyboard navigation, and a measured contrast pass.
+Those were choices, not defaults.
 
 ---
 
