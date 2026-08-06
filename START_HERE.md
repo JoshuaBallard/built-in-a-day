@@ -43,7 +43,7 @@ No build step. No dependencies. No `npm install`. That was on purpose.
 | 06 | **Reality check** — four real failures |
 | 07 | What changed |
 | 08 | Why Obvious |
-| 09 | **One idea** — the product proposal |
+| 09 | One idea — and why I'm holding it |
 | 10 | The thread |
 | 11 | **The honest part** — where I fall short of your requirements |
 | 12 | The ask |
