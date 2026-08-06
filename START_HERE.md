@@ -59,7 +59,7 @@ If you only have two minutes, read **04**, **06**, and **11**.
 - **[Issues](https://github.com/JoshuaBallard/built-in-a-day/issues)** — how I
   scoped ambiguous work before writing a line of code
 - **[Pull requests](https://github.com/JoshuaBallard/built-in-a-day/pulls)** —
-  twelve of them, each one branched, described, and verified
+  each one branched, described, and verified before it merged
 - **[Commits](https://github.com/JoshuaBallard/built-in-a-day/commits/main)** —
   timestamps included, because the timeline is part of the point
 - **[planning/](planning/)** — what I wrote before building, and a note on

@@ -43,8 +43,11 @@ Five minutes. That's the whole ask.
 
 Your posting asks for at least three pull requests on the first day.
 
-This is the first day. There are twelve, every one of them on a branch, and
-chapter four of the site is the log.
+This is the first day. Every change shipped on a branch, through a pull
+request, with a real commit message — sixteen of them by the time I sent you
+this link.
+
+Chapter four of the site is the log, and it counts itself.
 
 ---
 
