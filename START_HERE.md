@@ -15,12 +15,11 @@ There are two ways to explore it.
 
 ## Option 1 — Read the experience
 
-**5 minutes.** Nine chapters, start to finish.
+**5 minutes.** Twelve chapters, start to finish.
 
-→ **[Open the site](site/index.html)**
+→ **https://joshuaballard.github.io/built-in-a-day/**
 
-If you're reading this on GitHub, that link shows you raw HTML. To see the real
-thing:
+To run it locally instead:
 
 ```bash
 git clone git@github.com:JoshuaBallard/built-in-a-day.git
@@ -32,6 +31,25 @@ Then open **http://localhost:8000**.
 
 No build step. No dependencies. No `npm install`. That was on purpose.
 
+### What's in it
+
+| | |
+|---|---|
+| 01 | Built in a Day |
+| 02 | Why this exists |
+| 03 | Questions that became projects |
+| 04 | **The receipts** — every pull request, timestamped |
+| 05 | Things escalated |
+| 06 | **Reality check** — four real failures |
+| 07 | What changed |
+| 08 | Why Obvious |
+| 09 | **One idea** — the product proposal |
+| 10 | The thread |
+| 11 | **The honest part** — where I fall short of your requirements |
+| 12 | The ask |
+
+If you only have two minutes, read **04**, **06**, and **11**.
+
 ---
 
 ## Option 2 — Read the build
@@ -41,9 +59,11 @@ No build step. No dependencies. No `npm install`. That was on purpose.
 - **[Issues](https://github.com/JoshuaBallard/built-in-a-day/issues)** — how I
   scoped ambiguous work before writing a line of code
 - **[Pull requests](https://github.com/JoshuaBallard/built-in-a-day/pulls)** —
-  every change, branched and reviewed
+  twelve of them, each one branched, described, and verified
 - **[Commits](https://github.com/JoshuaBallard/built-in-a-day/commits/main)** —
   timestamps included, because the timeline is part of the point
+- **[planning/](planning/)** — what I wrote before building, and a note on
+  where the plan turned out to be wrong
 - **[CLAUDE.md](CLAUDE.md)** — the operating instructions I wrote for my AI
   collaborator, which is the part I'd most want to talk about
 
