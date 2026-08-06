@@ -330,10 +330,22 @@ main section {
     padding: 70px 0;
 }
 
+/*
+ * The title used to have the hero to itself at 14vw. It now shares the row
+ * with the walkthrough, so it gives up scale rather than the video giving up
+ * width. Below 1000px the grid stacks and the type grows back.
+ */
+.hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: clamp(40px, 5vw, 72px);
+    align-items: center;
+}
+
 .hero h1 {
-    max-width: 850px;
+    max-width: 100%;
     margin: 0;
-    font-size: clamp(5rem, 14vw, 11rem);
+    font-size: clamp(3.6rem, 8vw, 8rem);
     font-weight: 720;
     letter-spacing: -0.075em;
     line-height: 0.78;
@@ -347,24 +359,38 @@ main section {
 
 .hero-subtitle {
     max-width: 540px;
-    margin: 44px 0 0;
+    margin: 38px 0 0;
     color: var(--muted);
     font-size: clamp(1.05rem, 2vw, 1.3rem);
 }
 
-.hero-story {
-    margin-top: 80px;
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
-    letter-spacing: -0.035em;
-    line-height: 1.15;
+/*
+ * Loom is a plain iframe here, not their script embed. No JavaScript, no
+ * dependency, and the note underneath is a real link so a blocked or dead
+ * iframe still leaves a way to watch it.
+ */
+.video-frame {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--dark-surface);
 }
 
-.hero-story p {
-    margin: 0.25em 0;
+.video-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
 
-.hero-emphasis {
-    font-weight: 700;
+.video-note {
+    margin: 18px 0 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
 
 .scroll-prompt {
@@ -1246,6 +1272,25 @@ footer {
  */
 
 @media (max-width: 1000px) {
+    .hero {
+        min-height: 0;
+        padding: 96px 0;
+    }
+
+    .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 52px;
+    }
+
+    /* Full width again, so the title takes its scale back. */
+    .hero h1 {
+        font-size: clamp(4.4rem, 13vw, 8.5rem);
+    }
+
+    .hero-walkthrough {
+        max-width: 620px;
+    }
+
     .case-study,
     .case-study-reverse {
         grid-template-columns: 1fr;
@@ -1305,10 +1350,6 @@ footer {
 
     .hero h1 span {
         padding-left: 0.25em;
-    }
-
-    .hero-story {
-        margin-top: 60px;
     }
 
     .story-section {
